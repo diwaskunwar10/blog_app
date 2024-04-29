@@ -61,7 +61,8 @@ alembic upgrade head
 5. Start the backend server:
 
 ```
-uvicorn main:app --reload
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+
 ```
 
 The backend server should now be running on `http://localhost:8000`.
