@@ -1,0 +1,6 @@
+# Exclude specific files and directories
+**/__pycache__/
+**/.env
+**/venv/
+# Exclude node_modules directories
+**/node_modules/

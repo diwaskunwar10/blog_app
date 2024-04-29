@@ -1,0 +1,84 @@
+/* Navbar.css */
+
+.navbar {
+  /* Ensure the navbar takes up the entire width */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 15px 7%;
+  box-sizing: border-box; /* Add this line */
+  margin-bottom: 50px;
+}
+.nav-link {
+  text-decoration: none;
+  color: #333; /* Change the text color to a darker gray */
+  transition: color 0.2s ease; /* Add a transition effect on hover */
+}
+
+.nav-link:hover {
+  color: #666; /* Change the text color to a lighter gray on hover */
+}
+.logo {
+  width: 80px;
+  cursor: pointer;
+}
+
+.nav_search {
+  width: 80px;
+  cursor: pointer;
+}
+
+.navbar ul {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin-right: 1rem; /* Adjust the spacing between items */
+}
+
+ul {
+  flex: 1;
+  list-style: none;
+  text-align: center;
+}
+
+ul li {
+  display: inline-block;
+  margin: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.nav-search-item {
+  /* margin-left: auto; Push the search item to the right */
+  display: flex;
+  align-items: center;
+  background: #f8f7f7;
+  padding: 10px 20px;
+  /* padding-right: 400px; */
+  /* margin-left: 20px; */
+  cursor: pointer;
+}
+
+.nav-search-item input {
+  padding: 6px;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: #fff;
+  font-size: 18px;
+  max-width: 200px;
+}
+
+@media (max-width: 768px) {
+  /* Media query for smaller screens */
+  .navbar {
+    padding: 15px 2%; /* Reduce horizontal padding on smaller screens */
+  }
+}

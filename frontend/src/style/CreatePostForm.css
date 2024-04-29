@@ -1,0 +1,83 @@
+/* Form title */
+.form-container {
+    max-width: 70%;
+    margin: 0 auto;
+    background-color: #c4c1c1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    border-radius: 10px;
+
+  }
+.form-title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    text-align: center; /* Center the form title */
+  }
+  
+  
+  /* Form fields */
+  .form-field {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #65676b;
+    margin-bottom: 8px;
+  }
+  
+  .form-input {
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 1px solid #dddfe2;
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  
+  
+  
+  .form-post-title {
+    margin: 0 auto; /* Center the textarea */
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 1px solid #dddfe2;
+    border-radius: 4px;
+    outline: none;
+    resize: vertical;
+    /* min-height: 150px; */
+    width: 50%; /* Content input takes 80% width */
+  }
+  
+  .form-textarea {
+    margin: 0 auto; /* Center the textarea */
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 1px solid #dddfe2;
+    border-radius: 4px;
+    outline: none;
+    resize: vertical;
+    min-height: 150px;
+    width: 90%; /* Content input takes 80% width */
+  }
+  button {
+    margin: auto; /* Align horizontally to the center */
+    display: block; /* Ensure it takes up the full width */
+    width: 120px;
+    height: 40px;
+    padding: 10px 20px;
+    background-color: #4c00b4;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  
+  button:hover {
+    background-color: #0056b3;
+  }

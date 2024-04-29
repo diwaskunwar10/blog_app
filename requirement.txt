@@ -1,0 +1,9 @@
+fastapi==0.110.2
+pydantic==2.7.1
+PyJWT==2.8.0
+PyJWT==2.8.0
+SQLAlchemy==2.0.29
+psycopg2-binary
+uvicorn
+python-dotenv
+bcrypt
