@@ -36,3 +36,4 @@ class BlogPost(Base):
     class Config:
         from_attributes = True
 
+

@@ -9,6 +9,17 @@ from .auth import get_current_user ,get_current_user_id
 from typing import List
 from sqlalchemy.sql import text
 from sqlalchemy import select, outerjoin
+from dotenv import load_dotenv
+from pydantic import BaseModel
+
+import os
+
+import google.generativeai as genai
+load_dotenv()
+
+# Read environment variables for database connection
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+
 router = APIRouter(
     prefix="/posts",
     tags=["posts"],
@@ -169,3 +180,46 @@ def get_post_by_id(
         # "updated_at": post.updated_at,
         "author_id": post.author_id
     }
+
+
+genai.configure(api_key=GOOGLE_API_KEY)
+model = genai.GenerativeModel('gemini-pro')
+
+def get_response(prompt):
+    response = model.generate_content(prompt)
+    return response.text
+
+
+
+class TitleRequest(BaseModel):
+    title: str
+
+@router.post("/generate")
+async def generate_blog_from_title(
+    title_request: TitleRequest,
+    authorization: str = Header(None)
+):
+    try:
+        # Check if authorization header is present
+        if not authorization:
+            raise HTTPException(status_code=401, detail="Authorization header is missing")
+
+        # Parse authorization header
+        try:
+            scheme, token = authorization.split()
+            if scheme.lower() != "bearer":
+                raise HTTPException(status_code=401, detail="Invalid authentication scheme")
+        except ValueError:
+            raise HTTPException(status_code=401, detail="Invalid authorization header")
+
+        # Call the get_current_user function to authenticate and get user info
+        current_user_username = get_current_user(token)
+
+        # Generate blog content based on the provided title
+        title = title_request.title
+        print("title",title)
+        print("google key",GOOGLE_API_KEY)
+        generated_content = get_response(title)
+        return {"generatedContent": generated_content}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
